@@ -4,7 +4,7 @@ pkgname=lua5.1
 _pkgname=lua
 pkgver=5.1.5
 _luaver=${pkgname#lua}
-pkgrel=0
+pkgrel=${pkgrel:-0}
 pkgdesc="A powerful light-weight programming language designed for extending applications."
 url="https://www.lua.org/"
 arch="all"
@@ -111,6 +111,7 @@ libs() {
     mv "$pkgdir"/usr/lib "$subpkgdir"/usr/
 }
 
+options="$options ${DISABLE_CHECK:+!check}"
 sha512sums="
 0142fefcbd13afcd9b201403592aa60620011cc8e8559d4d2db2f92739d18186860989f48caa45830ff4f99bfc7483287fd3ff3a16d4dec928e2767ce4d542a9  lua-5.1.5.tar.gz
 9aa0eb8e394809fd77c3d3d13ef0b66a6cbeee24659b26516c7120425d5336def40b32fee2e53a6259d67c4ac08a5d0a17176b96af30183fbe124cfcdf14df7e  lua-5.1-make.patch
